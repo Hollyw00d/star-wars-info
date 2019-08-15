@@ -1,0 +1,23 @@
+{
+  "name": "star-wars-info",
+  "version": "1.0.0",
+  "description": "Star Wars info",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hollyw00d/star-wars-info.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hollyw00d/star-wars-info/issues"
+  },
+  "homepage": "https://github.com/Hollyw00d/star-wars-info#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
