@@ -7,56 +7,54 @@ var PORT = 3000;
 
 // Data
 // ===========================================================
-var yoda = {
+var characters = [{
+  routeName: "yoda",
   name: "Yoda",
   role: "Jedi Master",
   age: 900,
   forcePoints: 2000
-};
-
-var darthmaul = {
+}, {
+  routeName: "darthmaul",
   name: "Darth Maul",
   role: "Sith Lord",
   age: 200,
   forcePoints: 1200
-};
-
-
-// YOUR CODE GOES HERE
-var obiWanKenobi = {
+}, {
+  routeName: "obiwankenobi",
   name: "Obi Wan Kenobi",
-  role: "Jedi",
+  role: "Jedi Master",
   age: 55,
-  forcePoints: 1300
-};
-
-//
+  forcePoints: 1350
+}];
 
 // Routes
 // ===========================================================
+
 app.get("/", function(req, res) {
   res.send("Welcome to the Star Wars Page!");
 });
 
-app.get("/yoda", function(req, res) {
-  res.json(yoda);
+// What does this route do?
+app.get("/api/characters", function(req, res) {
+  return res.json(characters);
 });
 
-app.get("/darthmaul", function(req, res) {
-  res.json(darthmaul);
+// What does this route do?
+app.get("/api/characters/:character", function(req, res) {
+  // What does this code do?
+  var chosen = req.params.character;
+  console.log(chosen);
+
+  // What does this code do?
+  for (var i = 0; i < characters.length; i++) {
+    if (chosen === characters[i].routeName) {
+      return res.json(characters[i]);
+    }
+  }
+
+  // What does this code do?
+  return res.send("No character found");
 });
-
-app.get("/obiwankenobi", function(req, res) {
-  res.json(obiWanKenobi);
-});
-
-// :character is a query parameter
-app.get('/:character', function(req, res) {
-    var chosen = req.params.character;
-    console.log(chosen);
-    res.end();
-})
-
 
 // Listener
 // ===========================================================
